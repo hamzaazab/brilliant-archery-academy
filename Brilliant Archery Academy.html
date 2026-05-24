@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* أنيميشن بسيط لتغيير الصفحات بسلاسة */
         .page-content {
             display: none;
         }
@@ -24,37 +23,42 @@
 <body class="bg-gray-50 min-h-screen flex flex-col justify-between">
 
     <header class="bg-white shadow-sm p-4 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 text-sm font-medium text-gray-700">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-6 text-base font-bold text-gray-700">
             
+            <!-- الشعار -->
             <div class="flex items-center gap-3 cursor-pointer" onclick="switchPage('home')">
-                <img src="image_7f4fd0.png" alt="Brilliant Archery Academy Logo" class="h-12 w-12 object-contain rounded-full border border-gray-100" onerror="this.style.display='none'">
-                <div class="flex flex-col text-right">
-                    <span class="font-extrabold text-gray-900 text-base tracking-tight">Brilliant</span>
-                    <span class="text-[10px] text-gray-400 font-semibold uppercase tracking-wider -mt-1">Archery Academy</span>
-                </div>
+                <img src="logo.png" alt="Brilliant Archery Academy Logo" class="h-20 w-20 object-contain rounded-full border border-gray-100" onerror="this.style.display='none'">
             </div>
             
-            <nav class="flex items-center gap-5" id="main-nav">
-                <button onclick="switchPage('home')" id="nav-home" class="text-black font-bold text-base border-b-2 border-black pb-1 transition-all">الرئيسية</button>
-                <button onclick="switchPage('about')" id="nav-about" class="hover:text-black text-gray-700 transition-colors pb-1 text-sm font-medium">من نحن</button>
-                <button onclick="switchPage('ranking')" id="nav-ranking" class="hover:text-black text-gray-700 transition-colors pb-1 text-sm font-medium">تصنيف اللاعبين</button>
-                <button onclick="switchPage('branches')" id="nav-branches" class="hover:text-black text-gray-700 transition-colors pb-1 text-sm font-medium">فروعنا</button>
-                <a href="https://wa.me/201156021211" class="flex items-center gap-1 text-green-600 hover:text-green-700 transition-colors" target="_blank">
-                    <i class="fab fa-whatsapp text-base"></i> واتساب
-                </a>
+            <!-- قائمة التنقل (تم تكبير الخط والمسافات ومساحة الضغط) -->
+            <nav class="flex items-center gap-6 sm:gap-8" id="main-nav">
+                <button onclick="switchPage('home')" id="nav-home" class="text-black font-black text-lg border-b-2 border-black pb-2 transition-all px-2">الرئيسية</button>
+                <button onclick="switchPage('about')" id="nav-about" class="hover:text-black text-gray-700 transition-colors pb-2 text-base font-bold px-2">من نحن</button>
+                <button onclick="switchPage('ranking')" id="nav-ranking" class="hover:text-black text-gray-700 transition-colors pb-2 text-base font-bold px-2">تصنيف اللاعبين</button>
+                <button onclick="switchPage('branches')" id="nav-branches" class="hover:text-black text-gray-700 transition-colors pb-2 text-base font-bold px-2">فروعنا</button>
+                <button onclick="switchPage('tournaments')" id="nav-tournaments" class="hover:text-black text-gray-700 transition-colors pb-2 text-base font-bold px-2">البطولات</button>
             </nav>
 
+            <!-- أزرار السوشيال ميديا بألوانها الرسمية الثابتة -->
             <div class="flex items-center gap-5">
-                <a href="https://www.facebook.com/p/Brilliant-Archery-Academy-100063609289580/" class="text-gray-400 hover:text-[#1877F2] transition-colors" target="_blank" aria-label="Facebook">
+                <!-- واتساب -->
+                <a href="https://wa.me/201156021211" class="text-[#25D366] hover:opacity-80 transition-opacity" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                </a>
+                <!-- فيسبوك -->
+                <a href="https://www.facebook.com/p/Brilliant-Archery-Academy-100063609289580/" class="text-[#1877F2] hover:opacity-80 transition-opacity" target="_blank" aria-label="Facebook">
                     <i class="fab fa-facebook text-xl"></i>
                 </a>
-                <a href="https://www.tiktok.com/@brilliantarcheryacademy" class="text-gray-400 hover:text-black transition-colors" target="_blank" aria-label="TikTok">
+                <!-- تيك توك -->
+                <a href="https://www.tiktok.com/@brilliantarcheryacademy" class="text-black hover:text-gray-700 transition-colors" target="_blank" aria-label="TikTok">
                     <i class="fab fa-tiktok text-xl"></i>
                 </a>
-                <a href="https://www.instagram.com/brilliantarchery/" class="text-gray-400 hover:text-[#E1306C] transition-colors" target="_blank" aria-label="Instagram">
+                <!-- إنستغرام -->
+                <a href="https://www.instagram.com/brilliantarchery/" class="text-[#E1306C] hover:opacity-80 transition-opacity" target="_blank" aria-label="Instagram">
                     <i class="fab fa-instagram text-xl"></i>
                 </a>
-                <a href="https://x.com/acadmeyarchery" class="text-gray-400 hover:text-black transition-colors" target="_blank" aria-label="X (Twitter)">
+                <!-- منصة إكس -->
+                <a href="https://x.com/acadmeyarchery" class="text-black hover:text-gray-700 transition-colors" target="_blank" aria-label="X (Twitter)">
                     <i class="fab fa-x-twitter text-xl"></i>
                 </a>
             </div>
@@ -64,20 +68,95 @@
 
     <main class="flex-grow w-full max-w-6xl mx-auto px-6 py-12">
 
-        <section id="page-home" class="page-content active text-center">
-            <div class="bg-white rounded-2xl shadow-sm p-12 max-w-3xl mx-auto my-12 border border-gray-100">
-                <div class="inline-flex items-center justify-center bg-blue-50 w-20 h-20 rounded-full mb-6 text-blue-600">
-                    <i class="fas fa-bullseye text-4xl animate-bounce"></i>
-                </div>
-                <h1 class="text-4xl font-extrabold text-gray-900 mb-4">أكاديمية بريليانت للرماية</h1>
-                <p class="text-gray-600 text-lg mb-8 leading-relaxed">اكتشف شغفك وتعلّم أصول الرماية بالقوس والسهم مع نخبة من أفضل المدربين المحترفين. نؤهلك للبطولات ونوفر لك بيئة تدريبية آمنة وممتعة.</p>
-                <div class="flex justify-center gap-4">
-                    <button onclick="switchPage('branches')" class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors shadow-sm">استكشف فروعنا</button>
-                    <button onclick="switchPage('ranking')" class="bg-amber-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-600 transition-colors shadow-sm">لوحة تصنيف الأبطال</button>
+        <!-- واجهة الرئيسية المطورّة -->
+        <section id="page-home" class="page-content active space-y-16">
+            
+            <!-- 1. الـ Hero Section الرئيسي -->
+            <div class="relative bg-gradient-to-br from-slate-900 via-gray-900 to-blue-950 rounded-3xl p-8 sm:p-16 overflow-hidden shadow-xl text-center text-white border border-gray-800">
+                <!-- لمسة ديكور بالخلفية -->
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <span class="inline-flex items-center gap-1.5 bg-blue-500/20 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full mb-6 border border-blue-500/30">
+                        <i class="fas fa-bullseye text-amber-400"></i> الأكاديمية الأولى والأكثر حصداً للميداليات
+                    </span>
+                    
+                    <h1 class="text-4xl sm:text-5xl font-black tracking-tight mb-4 leading-tight">
+                        أطلق العنان لشغفك وتعلّم أصول <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">الرماية الاحترافية</span>
+                    </h1>
+                    
+                    <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
+                        تعلّم أساسيات وتقنيات الرماية بالقوس والسهم مع نخبة من المدربين المحترفين. نؤهلك للمشاركة في بطولات الاتحاد ونوفر لك بيئة رياضية مميزة وآمنة تماماً.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="switchPage('branches')" class="bg-white text-gray-900 px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all shadow-md flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i> استكشف فروعنا
+                        </button>
+                        <button onclick="switchPage('tournaments')" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-md flex items-center gap-2">
+                            <i class="fas fa-trophy text-amber-400"></i> سجل البطولات
+                        </button>
+                        <button onclick="switchPage('ranking')" class="bg-gray-800 text-gray-200 border border-gray-700 px-6 py-3 rounded-xl font-bold hover:bg-gray-700 transition-all flex items-center gap-2">
+                            <i class="fas fa-medal text-amber-500"></i> لوحة الأبطال
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            <!-- 2. قسم أرقام وإحصائيات الأكاديمية (Stats) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div class="inline-flex p-3 rounded-xl bg-blue-50 text-blue-600 text-2xl mb-3"><i class="fas fa-user-ninja"></i></div>
+                    <div class="text-3xl font-black text-gray-900">+50</div>
+                    <div class="text-xs text-gray-400 font-semibold mt-1">لاعب مسجل ومصنف</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div class="inline-flex p-3 rounded-xl bg-amber-50 text-amber-600 text-2xl mb-3"><i class="fas fa-award"></i></div>
+                    <div class="text-3xl font-black text-gray-900">+60</div>
+                    <div class="text-xs text-gray-400 font-semibold mt-1">ميدالية رسمية وودية</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div class="inline-flex p-3 rounded-xl bg-green-50 text-green-600 text-2xl mb-3"><i class="fas fa-map-signs"></i></div>
+                    <div class="text-3xl font-black text-gray-900">4</div>
+                    <div class="text-xs text-gray-400 font-semibold mt-1">فروع تدريبية مجهزة</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+                    <div class="inline-flex p-3 rounded-xl bg-purple-50 text-purple-600 text-2xl mb-3"><i class="fas fa-shield-halved"></i></div>
+                    <div class="text-3xl font-black text-gray-900">100%</div>
+                    <div class="text-xs text-gray-400 font-semibold mt-1">أمان وتوجيه احترافي</div>
+                </div>
+            </div>
+
+            <!-- 3. قسم مميزات التدريب معنا (Features) -->
+            <div class="max-w-5xl mx-auto space-y-8">
+                <div class="text-center">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900">لماذا تختار بريليانت؟</h2>
+                    <p class="text-gray-400 text-sm mt-2">نوفر لك كل المقومات الرياضية لتتحول من مبتدئ إلى بطل منافس</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/20 hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">تدريب أكاديمي معتمد</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">خطط تدريبية مدروسة تناسب جميع الأعمار السنية (من البراعم إلى الكبار) لتعلم تقنيات القوس والسهم Recurve بشكل علمي وصحيح.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/20 hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4"><i class="fas fa-dumbbell"></i></div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">معدات احترافية متكاملة</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">نوفر الأدوات والمستلزمات الرياضية الفاخرة أثناء التدريبات لمساعدتك على التركيز، مع تقديم استشارات لاختيار وتجميع معداتك الخاصة لاحقاً.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500/20 hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-xl mb-4"><i class="fas fa-users-viewfinder"></i></div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">تأهيل كامل للبطولات</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">نحن أكاديمية مسجلة رسمياً تحت مظلة الاتحاد؛ مما يتيح للاعبينا المتميزين فرصة القيد الرسمي والمشاركة في كبرى بطولات الجمهورية.</p>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
+        <!-- من نحن -->
         <section id="page-about" class="page-content max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold text-gray-900 text-center mb-4">من نحن؟</h2>
             <p class="text-gray-500 text-center mb-10 max-w-xl mx-auto text-sm leading-relaxed">رحلة من التميز والاحترافية بدأت منذ سنوات لتصنع أبطالاً يرفعون اسم مصر في رياضة الرماية بالقوس والسهم.</p>
@@ -124,6 +203,7 @@
             </div>
         </section>
 
+        <!-- تصنيف الأبطال -->
         <section id="page-ranking" class="page-content max-w-4xl mx-auto">
             <h2 class="text-3xl font-bold text-gray-900 text-center mb-4">تصنيف الأبطال</h2>
             <p class="text-gray-500 text-center mb-10 max-w-xl mx-auto text-sm leading-relaxed">لوحة الشرف الخاصة بأبطال أكاديمية بريليانت والأعلى تقييماً في المنافسات .</p>
@@ -135,12 +215,12 @@
                             <tr class="bg-gray-50 text-gray-500 text-xs font-bold border-b border-gray-100 uppercase tracking-wider">
                                 <th class="p-4 text-center w-20">الترتيب</th>
                                 <th class="p-4">اسم اللاعب</th>
-                                <th class="p-4">عدد المشاركات</th>
-                                <th class="p-4">عدد الميداليات</th>
-                                <th class="p-4">الذهبية</th>
-                              	<th class="p-4">الفضية</th>
-                                <th class="p-4">البرونزية</th>
-                            	<th class="p-4 text-center">مجموع النقاط</th>
+                                <th class="p-4 text-center">عدد المشاركات</th>
+                                <th class="p-4 text-center">عدد الميداليات</th>
+                                <th class="p-4 text-center">الذهبية</th>
+                                <th class="p-4 text-center">الفضية</th>
+                                <th class="p-4 text-center">البرونزية</th>
+                                <th class="p-4 text-center">مجموع النقاط</th>
                             </tr>
                         </thead>
                         <tbody class="text-sm text-gray-700 divide-y divide-gray-50">
@@ -148,42 +228,42 @@
                                 <td class="p-4 text-center font-bold text-lg text-amber-500">
                                     <i class="fas fa-medal text-xl"></i> 1
                                 </td>
-                                <td class="p-4 font-bold text-gray-950"> حمزة ياسر عزب</td>
+                                <td class="p-4 font-bold text-gray-950">حمزة ياسر عزب</td>
                                 <td class="p-4 text-center font-semibold text-gray-900">10</td>
-                                <td class="p-4 text-center font-semibold text-gray-900">584</td>
-                                <td class="p-4 text-center"><span class="bg-green-50 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full"><i class="fas fa-check-circle ml-0.5"></i> مسجل</span></td>
+                                <td class="p-4 text-center font-semibold text-gray-900">8</td>
+                                <td class="p-4 text-center font-semibold text-gray-900">3</td>
+                                <td class="p-4 text-center font-semibold text-gray-900">2</td>
+                                <td class="p-4 text-center font-semibold text-gray-900">5</td>
+                                <td class="p-4 text-center font-semibold text-gray-900">100</td>
+
                             </tr>
                             <tr class="hover:bg-slate-50/50 transition-colors">
                                 <td class="p-4 text-center font-bold text-lg text-slate-400">
                                     <i class="fas fa-medal text-xl"></i> 2
                                 </td>
-                                <td class="p-4 font-bold text-gray-950">مريم عمر فاروق</td>
-                                <td class="p-4 text-xs text-gray-500">ناشئين (سيدات)</td>
-                                <td class="p-4 text-center font-semibold text-gray-900">569</td>
-                                <td class="p-4 text-center"><span class="bg-green-50 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full"><i class="fas fa-check-circle ml-0.5"></i> مسجل</span></td>
+                                <td class="p-4 font-bold text-gray-950">  </td>
+                                <td class="p-4 text-xs text-gray-500"></td>
+                                <td class="p-4 text-center font-semibold text-gray-900"></td>
                             </tr>
                             <tr class="hover:bg-amber-700/5 transition-colors">
                                 <td class="p-4 text-center font-bold text-lg text-amber-700">
                                     <i class="fas fa-medal text-xl"></i> 3
                                 </td>
-                                <td class="p-4 font-bold text-gray-950">يوسف كريم حسن</td>
-                                <td class="p-4 text-xs text-gray-500">تحت 18 سنة</td>
-                                <td class="p-4 text-center font-semibold text-gray-900">552</td>
-                                <td class="p-4 text-center"><span class="bg-green-50 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full"><i class="fas fa-check-circle ml-0.5"></i> مسجل</span></td>
+                                <td class="p-4 font-bold text-gray-950">  </td>
+                                <td class="p-4 text-xs text-gray-500"></td>
+                                <td class="p-4 text-center font-semibold text-gray-900"></td>
                             </tr>
                             <tr class="hover:bg-gray-50/50 transition-colors">
                                 <td class="p-4 text-center font-bold text-gray-500">4</td>
-                                <td class="p-4 text-gray-900">زياد طارق رأفت</td>
-                                <td class="p-4 text-xs text-gray-500">ناشئين (رجال)</td>
-                                <td class="p-4 text-center font-semibold text-gray-900">540</td>
-                                <td class="p-4 text-center"><span class="bg-green-50 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full"><i class="fas fa-check-circle ml-0.5"></i> مسجل</span></td>
+                                <td class="p-4 text-gray-900">  </td>
+                                <td class="p-4 text-xs text-gray-500"></td>
+                                <td class="p-4 text-center font-semibold text-gray-900"></td>
                             </tr>
                             <tr class="hover:bg-gray-50/50 transition-colors">
                                 <td class="p-4 text-center font-bold text-gray-500">5</td>
-                                <td class="p-4 text-gray-900">فريدة أشرف حامد</td>
-                                <td class="p-4 text-xs text-gray-500">براعم تحت 14</td>
-                                <td class="p-4 text-center font-semibold text-gray-900">515</td>
-                                <td class="p-4 text-center"><span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-full"><i class="fas fa-clock ml-0.5"></i> قيد القيد</span></td>
+                                <td class="p-4 text-gray-900">  </td>
+                                <td class="p-4 text-xs text-gray-500"></td>
+                                <td class="p-4 text-center font-semibold text-gray-900"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -192,6 +272,7 @@
             <p class="text-left text-[11px] text-gray-400 mt-3 italic">* يتم تحديث تصنيفات ونقاط اللاعبين بشكل دوري بعد كل بطولة رسمية أو ودية.</p>
         </section>
 
+        <!-- فروعنا -->
         <section id="page-branches" class="page-content">
             <h2 class="text-3xl font-bold text-gray-900 text-center mb-4">فروعنا وجداول التدريب</h2>
             <p class="text-gray-500 text-center mb-12 max-w-md mx-auto text-sm">تفضل بزيارتنا في أي من فروعنا وجداولنا التدريبية المخصصة لتستمتع بتجربة رماية احترافية.</p>
@@ -209,7 +290,7 @@
                         <p class="text-gray-600 text-sm mb-6 leading-relaxed"><i class="far fa-clock ml-1 text-gray-400"></i> <strong>المواعيد:</strong> الجمعة والسبت من الساعة 10:00 صباحاً إلى 12:00 ظهراً.</p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-2 mt-2">
-                        <a href="https://wa.me/201156021211?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A5%D8%A8%D8%B1%D9%8A%D9%84%D9%8A%D8%A7%D9%86%D8%AA%D8%9C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D9%81%D9%8A%20%D9%81%D8%B1%D8%B2%20%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%BA%D8%A7%D8%A8%D8%A9" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-green-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-sm">
+                        <a href="https://wa.me/201156021211?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D9%8ك%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A5%D8%A8%D8%B1%D9%8Sub%20%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%BA%D8%A7%D8%A8" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-green-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-sm">
                             <i class="fab fa-whatsapp"></i> احجز الآن
                         </a>
                         <a href="https://maps.app.goo.gl/heBGUBnDxLkKGFmp7" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-gray-50 text-gray-700 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors border border-gray-200">
@@ -230,7 +311,7 @@
                         <p class="text-gray-600 text-sm mb-6 leading-relaxed"><i class="far fa-clock ml-1 text-gray-400"></i> <strong>المواعيد:</strong> الجمعة والسبت من الساعة 2:00 ظهراً إلى 3:30 عصراً.</p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-2 mt-2">
-                        <a href="https://wa.me/201156021211?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A5%D8%A8%D8%B1%D9%8A%D9%84%D9%8A%D8%A7%D9%86%D8%AA%D8%9C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D9%81%D9%8A%20%D9%81%D8%B1%D8%B2%20%D0%A7%D9%84%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B3%D9%85%D9%8A%D8%B3%D8%B1%D9%8A" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-green-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-sm">
+                        <a href="https://wa.me/201156021211?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A5%D8%A8%D8%B1%D9%8A%D9%84%D9%8A%D8%A7%D9%86%D8%AA%D8%9C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D9%81%D9%8A%20%D0%A7%D9%84%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B3%D9%85%D9%8A%D8%B3%D8%B1%D9%8I" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-green-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-sm">
                             <i class="fab fa-whatsapp"></i> احجز الآن
                         </a>
                         <a href="https://maps.app.goo.gl/ruydcpv3ecTiLV6a8" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-gray-50 text-gray-700 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors border border-gray-200">
@@ -251,7 +332,7 @@
                         <p class="text-gray-600 text-sm mb-6 leading-relaxed"><i class="far fa-clock ml-1 text-gray-400"></i> <strong>المواعيد:</strong> السبت والأحد من الساعة 6:00 مساءً إلى 8:00 مساءً.</p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-2 mt-2">
-                        <a href="https://wa.me/201156021211?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A5%D8%A8%D8%B1%D9%8A%D9%84%D9%8A%D8%A7%D9%86%D8%AA%D8%9C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D9%81%D9%8A%20%D9%81%D8%B1%D8%B2%20%D8%B2%D9%87%D8%B1%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D8%AF%D9%8A" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-green-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-sm">
+                        <a href="https://wa.me/201156021211?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A5%D8%A8%D8%B1%D9%8A%D9%84%D9%8A%D8%A7%D9%86%D8%AA%D8%9C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D9%81%D9%8A%20%D8%B2%D9%87%D8%B1%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D8%AF%D9%8A" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-green-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-sm">
                             <i class="fab fa-whatsapp"></i> احجز الآن
                         </a>
                         <a href="https://maps.app.goo.gl/8wpFwryUmcie89gU6" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-gray-50 text-gray-700 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors border border-gray-200">
@@ -272,7 +353,7 @@
                         <p class="text-gray-600 text-sm mb-6 leading-relaxed"><i class="far fa-clock ml-1 text-gray-400"></i> <strong>المواعيد:</strong> الإثنين والأربعاء من الساعة 7:00 مساءً إلى 9:00 مساءً.</p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-2 mt-2">
-                        <a href="https://wa.me/201156021211?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A5%D8%A8%D8%B1%D9%8A%D9%84%D9%8A%D8%A7%D9%86%D8%AA%D8%9C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D9%81%D9%8A%20%D9%81%D8%B1%D8%B2%20%D1%85%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D8%AF%D9%8A%20Club%20One" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-green-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-sm">
+                        <a href="https://wa.me/201156021211?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D8%A5%D8%A8%D8%B1%D9%8A%D9%84%D9%8A%D8%A7%D9%86%D8%AA%D8%9C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF%20%D8%AA%D8%AF%D8%B1%D9%8A%D8%A8%20%D9%81%D9%8A%20%D9%85%D8%B2%D9%87%D8%B1%D8%A7%D8%A1%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D8%AF%D9%8A%20Club%20One" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-green-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-sm">
                             <i class="fab fa-whatsapp"></i> احجز الآن
                         </a>
                         <a href="https://maps.app.goo.gl/5Tb1EkKPRnDenMWB7" target="_blank" class="flex-1 inline-flex justify-center items-center gap-2 bg-gray-50 text-gray-700 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors border border-gray-200">
@@ -283,42 +364,255 @@
             </div>
         </section>
 
+        <!-- صفحة البطولات -->
+        <section id="page-tournaments" class="page-content max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-4">بطولات الأكاديمية</h2>
+            <p class="text-gray-500 text-center mb-10 max-w-xl mx-auto text-sm leading-relaxed">تابع أحدث البطولات الرسمية والودية التي تشارك فيها أكاديمية بريليانت وإنجازات أبطالنا المستمرة (اضغط على البطولة لعرض التفاصيل والصور).</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- بطولة 1 -->
+                <div onclick="openTournamentModal(1)" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 border-r-4 border-r-amber-500 cursor-pointer hover:shadow-md hover:scale-[1.01] transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-50 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-full">رسمية</span>
+                        <span class="text-xs text-gray-400 font-medium"><i class="far fa-calendar-alt ml-1"></i> مايو 2026</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">بطولة السهم الماسي للقوس والسهم</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">حصدت أكاديمية بريليانت علي 13 ميدالية بواقع 4 ذهبية و4 فضيات و5 برونزية.</p>
+                    <div class="flex items-center justify-between text-xs text-gray-400">
+                        <span class="flex items-center gap-1"><i class="fas fa-location-dot"></i> ستاد القاهرة الدولي</span>
+                        <span class="text-blue-600 font-semibold">عرض التفاصيل والصور ←</span>
+                    </div>
+                </div>
+
+                <!-- بطولة 2 -->
+                <div onclick="openTournamentModal(2)" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 border-r-4 border-r-blue-500 cursor-pointer hover:shadow-md hover:scale-[1.01] transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-blue-50 text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full">رسمية</span>
+                        <span class="text-xs text-gray-400 font-medium"><i class="far fa-calendar-alt ml-1"></i> أبريل 2026</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">بطولة الجمهورية المفتوحة للرماية</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">حصدت أكاديمية بريليانت علي 5 ميدالية بواقع 2 فضيات و3 برونزية.</p>
+                    <div class="flex items-center justify-between text-xs text-gray-400">
+                        <span class="flex items-center gap-1"><i class="fas fa-location-dot"></i> ستاد القاهرة الدولي</span>
+                        <span class="text-blue-600 font-semibold">عرض التفاصيل والصور ←</span>
+                    </div>
+                </div>
+
+                <!-- بطولة 3 -->
+                <div onclick="openTournamentModal(3)" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 border-r-4 border-r-amber-500 cursor-pointer hover:shadow-md hover:scale-[1.01] transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-50 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-full">رسمية</span>
+                        <span class="text-xs text-gray-400 font-medium"><i class="far fa-calendar-alt ml-1"></i> نوفمبر 2025</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">بطولة السهم الذهبي للقوس والسهم</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">حصدت أكاديمية بريليانت علي 6 ميدالية بواقع 4 ذهبية و2 برونزية.</p>
+                    <div class="flex items-center justify-between text-xs text-gray-400">
+                        <span class="flex items-center gap-1"><i class="fas fa-location-dot"></i> ستاد القاهرة الدولي</span>
+                        <span class="text-blue-600 font-semibold">عرض التفاصيل والصور ←</span>
+                    </div>
+                </div>
+
+                <!-- بطولة 4 -->
+                <div onclick="openTournamentModal(4)" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 border-r-4 border-r-amber-500 cursor-pointer hover:shadow-md hover:scale-[1.01] transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-green-50 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full">ودية</span>
+                        <span class="text-xs text-gray-400 font-medium"><i class="far fa-calendar-alt ml-1"></i> نوفمبر 2025</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">بطولة حي الأشجار الودية للقوس والسهم</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">حصدت أكاديمية بريليانت علي 16 ميدالية بواقع 4 ذهبية و فضية و2 برونزية.</p>
+                    <div class="flex items-center justify-between text-xs text-gray-400">
+                        <span class="flex items-center gap-1"><i class="fas fa-location-dot"></i> حي الأشجار</span>
+                        <span class="text-blue-600 font-semibold">عرض التفاصيل والصور ←</span>
+                    </div>
+                </div>
+
+                <!-- بطولة 5 -->
+                <div onclick="openTournamentModal(5)" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 border-r-4 border-r-amber-500 cursor-pointer hover:shadow-md hover:scale-[1.01] transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-50 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-full">رسمية</span>
+                        <span class="text-xs text-gray-400 font-medium"><i class="far fa-calendar-alt ml-1"></i> أكتوبر 2025</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">بطولة أعياد أكتوبر للقوس والسهم</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">حصدت أكاديمية بريليانت علي 13 ميدالية بواقع 4 ذهبية و2 برونزية.</p>
+                    <div class="flex items-center justify-between text-xs text-gray-400">
+                        <span class="flex items-center gap-1"><i class="fas fa-location-dot"></i> ستاد القاهرة الدولي</span>
+                        <span class="text-blue-600 font-semibold">عرض التفاصيل والصور ←</span>
+                    </div>
+                </div>
+
+                <!-- بطولة 6 -->
+                <div onclick="openTournamentModal(6)" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 border-r-4 border-r-amber-500 cursor-pointer hover:shadow-md hover:scale-[1.01] transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-amber-50 text-amber-700 text-xs font-bold px-2.5 py-1 rounded-full">رسمية</span>
+                        <span class="text-xs text-gray-400 font-medium"><i class="far fa-calendar-alt ml-1"></i> سبتمبر 2025</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">بطولة السهم الفضي للقوس والسهم</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">حصدت أكاديمية بريليانت علي 5 ميدالية بواقع 1 ذهبية و 1 فضية و3 برونزية.</p>
+                    <div class="flex items-center justify-between text-xs text-gray-400">
+                        <span class="flex items-center gap-1"><i class="fas fa-location-dot"></i> ستاد القاهرة الدولي</span>
+                        <span class="text-blue-600 font-semibold">عرض التفاصيل والصور ←</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- النافذة المنبثقة لتفاصيل البطولات (Modal) -->
+    <div id="tournament-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 animate-fadeIn flex flex-col">
+            <div class="p-6 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white z-10">
+                <div>
+                    <span id="modal-type" class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700"></span>
+                    <h3 id="modal-title" class="font-extrabold text-xl text-gray-900 mt-2"></h3>
+                </div>
+                <button onclick="closeTournamentModal()" class="text-gray-400 hover:text-black w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center transition-colors">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-6 flex-grow">
+                <div class="grid grid-cols-2 gap-4 text-sm bg-gray-50 p-4 rounded-xl">
+                    <div class="text-gray-600"><i class="far fa-calendar-alt text-blue-500 ml-1"></i> <strong>التاريخ:</strong> <span id="modal-date" class="text-gray-900"></span></div>
+                    <div class="text-gray-600"><i class="fas fa-location-dot text-blue-500 ml-1"></i> <strong>المكان:</strong> <span id="modal-location" class="text-gray-900"></span></div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-2 text-base"><i class="fas fa-trophy text-amber-500 ml-1"></i> إنجازات الأكاديمية بالبطولة:</h4>
+                    <p id="modal-desc" class="text-gray-600 text-sm leading-relaxed"></p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-3 text-base"><i class="far fa-images text-blue-500 ml-1"></i> ألبوم صور الأبطال بالبطولة:</h4>
+                    <div id="modal-gallery" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <!-- تم التوليد عبر سكريبت -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-white border-t border-gray-100 text-center py-6 text-xs text-gray-400">
         © 2026 Brilliant Archery Academy. جميع الحقوق محفوظة.
     </footer>
 
     <script>
-        function switchPage(pageId) {
-            // 1. إخفاء جميع الصفحات
-            const pages = document.querySelectorAll('.page-content');
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
+        const tournamentsData = {
+            1: {
+                title: "بطولة السهم الماسي للقوس والسهم",
+                type: "رسمية",
+                date: "مايو 2026",
+                location: "ستاد القاهرة الدولي",
+                desc: "تألقت أكاديمية بريليانت في هذه البطولة القوية، وحصد أبطالنا علي 13 ميدالية متنوعة بواقع 4 ميداليات ذهبية، و4 ميداليات فضية، و5 ميداليات برونزية وسط منافسة شرسة وإشادة واسعة من لجان التحكيم.",
+                images: ["b1_pic1.jpg", "b1_pic2.jpg", "b1_pic3.jpg", "b1_pic4.jpg"] 
+            },
+            2: {
+                title: "بطولة الجمهورية المفتوحة للرماية",
+                type: "رسمية",
+                date: "أبريل 2026",
+                location: "ستاد القاهرة الدولي",
+                desc: "قدم رماة الأكاديمية مستويات فنية رائعة مكنتهم من الوقوف على منصات التتويج، حيث حصدت أكاديمية بريليانت علي 5 ميداليات مميزة بواقع 2 فضيات و3 ميداليات برونزية.",
+                images: ["b2_pic1.jpg", "b2_pic2.jpg", "b2_pic3.jpg"]
+            },
+            3: {
+                title: "بطولة السهم الذهبي للقوس والسهم",
+                type: "رسمية",
+                date: "نوفمبر 2025",
+                location: "ستاد القاهرة الدولي",
+                desc: "سيطرة تامة لأبطالنا في منافسات الرمي! حصدت أكاديمية بريليانت علي 6 ميداليات رفيعة المستوى بواقع 4 ذهبية بالمركز الأول و2 برونزية.",
+                images: ["b3_pic1.jpg", "b3_pic2.jpg"]
+            },
+            4: {
+                title: "بطولة حي الأشجار الودية للقوس والسهم",
+                type: "ودية",
+                date: "نوفمبر 2025",
+                location: "حي الأشجار",
+                desc: "مهرجان رياضي وتدريبي ممتع لجميع الأعمار السنية، حصدت فيه أكاديمية بريليانت النصيب الأكبر بـ 16 ميدالية بواقع 4 ذهبية، وميدالية فضية، و2 برونزية وسط تشجيع أولياء الأمور.",
+                images: ["b4_pic1.jpg", "b4_pic2.jpg", "b4_pic3.jpg"]
+            },
+            5: {
+                title: "بطولة أعياد أكتوبر للقوس والسهم",
+                type: "رسمية",
+                date: "أكتوبر 2025",
+                location: "ستاد القاهرة الدولي",
+                desc: "احتفالاً بانتصارات أكتوبر المجيدة، حقق رماة بريليانت نتائج مذهلة وحصدوا 13 ميدالية قوية بواقع 4 ذهبية و2 برونزية في المراكز المتقدمة.",
+                images: ["b5_pic1.jpg", "b5_pic2.jpg"]
+            },
+            6: {
+                title: "بطولة السهم الفضي للقوس والسهم",
+                type: "رسمية",
+                date: "سبتمبر 2025",
+                location: "ستاد القاهرة الدولي",
+                desc: "شهدت البطولة انطلاقة قوية للاعبين الجدد في الأكاديمية وحصدنا فيها 5 ميداليات غالية بواقع 1 ذهبية، 1 فضية، و3 ميداليات برونزية.",
+                images: ["b6_pic1.jpg", "b6_pic2.jpg", "b6_pic3.jpg"]
+            }
+        };
 
-            // 2. إظهار الصفحة المستهدفة
-            const targetPage = document.getElementById('page-' + pageId);
-            if (targetPage) {
-                targetPage.classList.add('active');
+        function openTournamentModal(id) {
+            const data = tournamentsData[id];
+            if (!data) return;
+
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-type').innerText = data.type;
+            document.getElementById('modal-date').innerText = data.date;
+            document.getElementById('modal-location').innerText = data.location;
+            document.getElementById('modal-desc').innerText = data.desc;
+
+            const typeBadge = document.getElementById('modal-type');
+            if(data.type === "ودية") {
+                typeBadge.className = "text-xs font-bold px-2.5 py-1 rounded-full bg-green-50 text-green-700";
+            } else {
+                typeBadge.className = "text-xs font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700";
             }
 
-            // 3. إعادة تعيين أزرار التنقل في القائمة العلوية
+            const galleryContainer = document.getElementById('modal-gallery');
+            galleryContainer.innerHTML = '';
+
+            data.images.forEach(imgSrc => {
+                const imgElement = document.createElement('img');
+                imgElement.src = imgSrc;
+                imgElement.alt = data.title;
+                imgElement.className = "w-full h-32 object-cover rounded-xl border border-gray-100 hover:opacity-90 transition-opacity cursor-zoom-in";
+                imgElement.onerror = function() {
+                    this.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Brilliant+Archery';
+                };
+                galleryContainer.appendChild(imgElement);
+            });
+
+            document.getElementById('tournament-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTournamentModal() {
+            document.getElementById('tournament-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('tournament-modal');
+            if (event.target === modal) {
+                closeTournamentModal();
+            }
+        }
+
+        function switchPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) targetPage.classList.add('active');
+
             const buttons = document.querySelectorAll('#main-nav button');
             buttons.forEach(btn => {
                 btn.className = "hover:text-black text-gray-700 transition-colors pb-1 text-sm font-medium";
             });
 
-            // 4. تغيير نمط الزر النشط إن وُجد لحماية السكربت من التوقف
             const activeBtn = document.getElementById('nav-' + pageId);
             if (activeBtn) {
                 activeBtn.className = "text-black font-bold text-base border-b-2 border-black pb-1 transition-all";
             }
 
-            // 5. الصعود بسلاسة لأعلى الصفحة عند التبديل
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-
 </body>
 </html>

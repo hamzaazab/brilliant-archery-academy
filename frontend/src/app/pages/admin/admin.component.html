@@ -1,0 +1,87 @@
+<section class="page-content active max-w-6xl mx-auto space-y-8">
+  <div class="flex items-center justify-between">
+    <div>
+      <h2 class="text-3xl font-bold text-gray-900">لوحة تحكم المشرف</h2>
+      <p class="text-sm text-gray-500 mt-1">يمكنك تعديل صفحة التصنيف وصفحة البطولات ثم حفظ التغييرات.</p>
+    </div>
+    <a routerLink="/admin/users" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-200">إدارة المشرفين</a>
+  </div>
+
+  <p *ngIf="message" class="text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-100 rounded-lg px-4 py-2">{{ message }}</p>
+  <div *ngIf="loading" class="text-sm text-gray-500">جار تحميل البيانات...</div>
+
+  <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm space-y-4" *ngIf="!loading">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xl font-bold text-gray-900">تعديل التصنيف</h3>
+      <button type="button" (click)="addRankingRow()" class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold hover:bg-gray-200">إضافة لاعب</button>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-gray-500 border-b border-gray-100">
+            <th class="p-2">الترتيب</th>
+            <th class="p-2">الاسم</th>
+            <th class="p-2">المشاركات</th>
+            <th class="p-2">الميداليات</th>
+            <th class="p-2">ذهبية</th>
+            <th class="p-2">فضية</th>
+            <th class="p-2">برونزية</th>
+            <th class="p-2">النقاط</th>
+            <th class="p-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rankings; let i = index" class="border-b border-gray-50">
+            <td class="p-2"><input type="number" [(ngModel)]="row.rank" [name]="'rank' + i" class="w-16 border border-gray-200 rounded px-2 py-1"></td>
+            <td class="p-2"><input type="text" [(ngModel)]="row.name" [name]="'name' + i" class="w-52 border border-gray-200 rounded px-2 py-1"></td>
+            <td class="p-2"><input type="number" [(ngModel)]="row.participations" [name]="'part' + i" class="w-20 border border-gray-200 rounded px-2 py-1"></td>
+            <td class="p-2"><input type="number" [(ngModel)]="row.medals" [name]="'med' + i" class="w-20 border border-gray-200 rounded px-2 py-1"></td>
+            <td class="p-2"><input type="number" [(ngModel)]="row.gold" [name]="'gold' + i" class="w-20 border border-gray-200 rounded px-2 py-1"></td>
+            <td class="p-2"><input type="number" [(ngModel)]="row.silver" [name]="'silver' + i" class="w-20 border border-gray-200 rounded px-2 py-1"></td>
+            <td class="p-2"><input type="number" [(ngModel)]="row.bronze" [name]="'bronze' + i" class="w-20 border border-gray-200 rounded px-2 py-1"></td>
+            <td class="p-2"><input type="number" [(ngModel)]="row.points" [name]="'points' + i" class="w-20 border border-gray-200 rounded px-2 py-1"></td>
+            <td class="p-2">
+              <button type="button" (click)="removeRankingRow(i)" class="text-xs bg-red-50 text-red-600 px-2 py-1 rounded hover:bg-red-100">حذف</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button type="button" [disabled]="savingRankings" (click)="saveRankings()" class="bg-gray-900 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-black disabled:opacity-60">{{ savingRankings ? 'جار الحفظ...' : 'حفظ التصنيف' }}</button>
+  </div>
+
+  <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm space-y-4" *ngIf="!loading">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xl font-bold text-gray-900">تعديل البطولات</h3>
+      <button type="button" (click)="addTournament()" class="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold hover:bg-gray-200">إضافة بطولة</button>
+    </div>
+
+    <div class="space-y-4">
+      <div *ngFor="let item of tournaments; let i = index" class="border border-gray-200 rounded-xl p-4 space-y-3">
+        <div class="flex justify-between items-center">
+          <h4 class="font-bold text-gray-800">بطولة #{{ i + 1 }}</h4>
+          <button type="button" (click)="removeTournament(i)" class="text-xs bg-red-50 text-red-600 px-2 py-1 rounded hover:bg-red-100">حذف</button>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-3 text-sm">
+          <input type="number" [(ngModel)]="item.id" [name]="'id' + i" placeholder="ID" class="border border-gray-200 rounded px-3 py-2">
+          <input type="text" [(ngModel)]="item.title" [name]="'title' + i" placeholder="العنوان" class="border border-gray-200 rounded px-3 py-2">
+          <input type="text" [(ngModel)]="item.date" [name]="'date' + i" placeholder="التاريخ" class="border border-gray-200 rounded px-3 py-2">
+          <input type="text" [(ngModel)]="item.location" [name]="'loc' + i" placeholder="المكان" class="border border-gray-200 rounded px-3 py-2">
+          <input type="text" [(ngModel)]="item.type" [name]="'type' + i" placeholder="النوع" class="border border-gray-200 rounded px-3 py-2">
+          <select [(ngModel)]="item.accent" [name]="'accent' + i" class="border border-gray-200 rounded px-3 py-2 bg-white">
+            <option value="amber">amber</option>
+            <option value="blue">blue</option>
+          </select>
+          <textarea [(ngModel)]="item.summary" [name]="'summary' + i" placeholder="وصف مختصر" class="border border-gray-200 rounded px-3 py-2 md:col-span-2" rows="2"></textarea>
+          <textarea [(ngModel)]="item.description" [name]="'desc' + i" placeholder="الوصف الكامل" class="border border-gray-200 rounded px-3 py-2 md:col-span-2" rows="3"></textarea>
+          <textarea [(ngModel)]="item.imagesText" [name]="'images' + i" placeholder="الصور مفصولة بفاصلة: img1.jpg, img2.jpg" class="border border-gray-200 rounded px-3 py-2 md:col-span-2" rows="2"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" [disabled]="savingTournaments" (click)="saveTournaments()" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 disabled:opacity-60">{{ savingTournaments ? 'جار الحفظ...' : 'حفظ البطولات' }}</button>
+  </div>
+</section>
